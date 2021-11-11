@@ -1,0 +1,23 @@
+.sticky-top{
+
+    top:80px;
+}
+.active{
+background-color: #47C1BF;
+
+
+
+}a
+{
+    font-size: 25px;
+    color:#47C1BF ;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+}
+ a:hover{
+    color: mintcream;
+    background-color: #47C1BF;
+    font-size: 30px;
+
+}

@@ -1,0 +1,25 @@
+a{
+    font-size: 25px;
+    color:#47C1BF ;
+    font-family: 'Times New Roman', Times, serif ;
+    font-weight: bold;
+
+}
+ a:hover{
+    color: mintcream;
+    background-color: #47C1BF;
+    font-size: 35px;
+
+}
+.gallary{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.left{
+    float: left;
+    width: 12%;
+}
+.right{
+    float: right;
+    width: 80%;
+}

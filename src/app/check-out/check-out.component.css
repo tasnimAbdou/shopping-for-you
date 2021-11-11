@@ -1,0 +1,39 @@
+*{font-family: 'Times New Roman', Times, serif;}
+.card{
+    border:5px solid #47C1BF;
+    margin: 10px;
+    border-radius: 10px;
+    height: 500px;
+    overflow: auto;
+}
+.noborder{
+border: white;
+
+}
+strong{
+    font-size: 20px;
+}
+span{
+    color: darkcyan;
+}
+td{
+    font-size: 15px;
+}
+h2,h3{
+    font-family: 'Times New Roman', Times, serif;
+    color: #47C1BF;
+
+}
+p{
+    font-size: 15px;
+}
+label{
+    text-transform: uppercase;
+}
+.btn{
+    background-color: #47C1BF;
+    color: white;
+    font-size: 20px;
+    margin: 5px;
+    font-weight: bold;
+}

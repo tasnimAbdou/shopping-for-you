@@ -1,0 +1,24 @@
+
+<div class="sticky-top " >
+<div class="list-group ">
+
+    <a 
+        [class.active]="!category"
+        routerLink="/"
+        class="list-group-item list-group-item-action">
+            All Category
+        </a>
+    
+    <div *ngFor="let categoryn of secondCategories$ | async" class="list-group">
+        
+    
+        <a 
+    [class.active]="secondCategory===categoryn.name"
+    routerLink="/"
+    [queryParams]="{scatg:categoryn.name}"
+    class="list-group-item list-group-item-action">
+        {{categoryn.name}}
+    </a>
+    </div>
+</div>
+</div>

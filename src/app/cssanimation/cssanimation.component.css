@@ -1,0 +1,15 @@
+div{
+
+    width:120px;
+    height:120px;
+    background-color:blueviolet;
+    animation-name:colorchange;
+    animation-duration:20s;
+}
+@keyframes colorchange {
+  0% {background-color:yellow}
+  25% {background-color: green}
+ 50% {background-color: lightpink}
+ 75% {background-color: red}
+100%{background-color:lightskyblue}
+}

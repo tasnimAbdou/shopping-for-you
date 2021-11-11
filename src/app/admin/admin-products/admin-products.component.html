@@ -1,0 +1,38 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn ">Add Product</a>
+  
+</p>
+
+<table class="table row-border hover"
+     datatable [dtOptions]="dtOptions"
+     [dtTrigger]="dtTrigger">
+  <thead class="">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Colors</th>
+
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filtered ">
+      <td>{{product.payload.val().title}}</td>
+      <td>{{product.payload.val().price}}</td>
+      <td>{{product.payload.val().colors}}</td>
+
+      <td><a [routerLink]="['/admin/products',product.key]">Edit</a></td>
+      <td>
+        <button type="button" (click)="delete()">Delete</button>
+
+      </td>
+
+    </tr>
+  </tbody>
+
+
+
+
+</table>

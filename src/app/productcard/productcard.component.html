@@ -1,0 +1,78 @@
+<div class="card-container">
+<div class="card" *ngIf="product" >
+  <div class="card-main">
+  <img [src]="product.payload.val().imgURL" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.payload.val().title}}</h5>
+    <!--<p class="card-text">{{product.payload.val().secondCategory}}</p>
+    <p class="card-text">{{product.payload.val().category}}</p>-->
+    <p class="card-text">price: {{product.payload.val().price}} $</p>
+  </div>
+</div>
+
+  <div class="card-footer"  >
+    <form #f="ngForm" (ngSubmit)="onsubmit(f.value); addToCart(product)"  ngNativeValidate >
+      <div class="form-group">
+        <select size="3" [(ngModel)]="orddetails.color"
+
+         #color="ngModel" name="color" id="color" class=" optionsContainer" required>
+          <option disabled class="disable">colors:</option>
+          <option class="optionsblock" [style.background]="color" *ngFor="let color of product.payload.val().colors"
+            (click)=try($event.target,color)>{{color}}</option>
+        </select>
+
+      </div>
+     
+
+      <div class="form-group">
+
+        <select size="3" [(ngModel)]="orddetails.sizen" #sizen="ngModel" [name]="sizen" 
+        id="sizen" class="optionsContainer" required
+        >
+          <option disabled class="disable" >sizes:</option>
+
+          <option [value]="sizen" class="optionsblock" *ngFor="let sizen of product.payload.val().sizes"
+            (click)=try($event.target,sizen)>{{sizen}}</option>
+        </select>
+
+      </div>
+
+    
+
+    
+
+
+    <button *ngIf="getQuantity()===0 ;else quantityUpdated" type="submit" 
+      class="btn btn-block ">
+
+      {{product.payload.val().title}}
+    </button>
+
+
+    <ng-template #quantityUpdated>
+      <div class="row">
+        <div class="col-2">
+
+          <button (click)="removeFromCart(product)" class="btn  ">
+            -
+          </button>
+        </div>
+
+        <div class="col-7">
+          <button class="btn ">amount:{{ getQuantity()}}</button>
+        </div>
+
+        <div class="col-2">
+          <button  type="submit" class="btn ">
+            +
+          </button>
+
+        </div>
+      </div>
+
+
+    </ng-template>
+  </form>
+  </div>
+
+</div></div>

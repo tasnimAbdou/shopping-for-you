@@ -1,0 +1,63 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">order Details</th>
+      <th scope="col">shipping Info</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr *ngFor="let ord of orders$">
+
+        
+          <td>
+          <tr >
+            <td>
+              <tr *ngFor="let or of ord">
+                <td>{{or.product.title}}</td>
+              </tr>
+            </td>
+
+            <td>
+              <tr *ngFor="let or of ord">
+                <td>{{or.product.color}}</td>
+              </tr>    
+            </td>
+   
+            <td>
+              <tr *ngFor="let or of ord">
+                <td>{{or.product.size}}</td>
+              </tr>
+            </td>
+
+   
+            <td>
+              <tr *ngFor="let or of ord">
+                <td>{{or.quantity}}</td>
+              </tr>
+            </td>
+
+          </tr>
+        </td>
+       
+  
+        <td>
+  
+          <tr *ngFor="let info of shipping$ ">
+            <td>
+              <tr>
+                <td>{{info.name}}</td>
+                <td>{{info.mobile}}</td>
+              </tr>
+            </td>
+            <td>{{info.city}}</td>
+            <td>{{info.city}}</td>
+            <td>{{info.city}}</td>
+  
+          </tr>
+    </td>
+  </tr>
+  </tbody>
+
+
+</table>

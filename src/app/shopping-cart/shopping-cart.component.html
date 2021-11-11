@@ -1,0 +1,31 @@
+<h1>Shopping Cart Items</h1>
+<ng-container *ngIf="carts$ | async as cart">
+<p>you have -<strong>{{cart.getCartCounter}}</strong>- items in your cart.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">product</th>
+      <th scope="col">color</th>
+      <th scope="col">size</th>
+
+      <th scope="col">quantity</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let productId of cart.productids">
+      
+        <td>{{cart.items[productId].product.title}}</td>
+        <td>{{cart.items[productId].product.color}}</td>
+        <td>{{cart.items[productId].product.size}}</td>
+        <td>{{cart.items[productId].quantity}}</td>
+        <td>{{cart.items[productId].quantity}} * {{cart.items[productId].product.price}}</td>
+      
+    </tr>
+  </tbody>
+  <tfoot>Total Price:<strong> {{cart.totalPrice}} $</strong></tfoot>
+
+</table>
+
+<a class="btn" routerLink="/chec-out">Checkout Now</a>
+</ng-container>

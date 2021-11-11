@@ -1,0 +1,146 @@
+<div class="row justify-content-between">
+  <div class="col-8">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+      <div class="form-group">
+        <label for="title">Product Name</label><br />
+        <input [(ngModel)]="productm.title" 
+        name="title" #title="ngModel" 
+        required minlength="3" type="text" id="title"
+          class="form-control input-group" />
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+          <div *ngIf="title.errors.required">please enter product name</div>
+          <div *ngIf="title.errors.minlength">minimum length is {{title.errors.minlength.requiredLength}}</div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label><br />
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input [(ngModel)]="productm.price" #price="ngModel" required [min]="0" name="price" type="text" id="price"
+            class="form-control" aria-label="Amount (to the nearest dollar)">
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+          </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+          <div *ngIf="price.errors.required">please enter price</div>
+          <div *ngIf="price.errors?.min">min value is 0</div>
+
+
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label><br />
+        <select [(ngModel)]="productm.category" #category name="category"
+         id="catigory" class="form-control"
+         (change)="cat1=category.value">
+          <option>please select category</option>
+          <option *ngFor="let category of categories$ | async">{{category.name}}</option>
+
+
+        </select>
+
+      </div>
+      <div class="form-group">
+        <label for="secondCategory">secondCategory</label><br />
+        <select [(ngModel)]="productm.secondCategory" #secondCategory name="secondCategory" id="secondCategory"
+          class="form-control" (change)="size(secondCategory.value)">
+          <option>please select category</option>
+          <option *ngFor="let secondCategory of secondCategories$ | async">{{secondCategory.name}}</option>
+
+
+        </select>
+
+      </div>
+
+
+      
+      <div class="form-group">
+        <mat-form-field appearance="">
+          <mat-label>colors</mat-label>
+          <mat-select [(value)]="selcolors" 
+          [(ngModel)]="productm.colors"
+           #colors name="colors" 
+            multiple>
+            <mat-option  *ngFor="let color of colors$| async" 
+            [value]="color.name" 
+            class="colorblock"
+            [style.background]="color.name"
+            (click)=selectedSizes($event.target,color.name)
+            > </mat-option>
+           
+          </mat-select>
+        </mat-form-field>
+        
+        <p>You selected: {{colors.value}}</p>
+      </div>
+      
+
+<div class="form-group">
+  <mat-form-field appearance="">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selectedsizes" 
+    [(ngModel)]="productm.sizes"
+     #sizes name="sizes" 
+      multiple>
+      <mat-option  *ngFor="let size of size$| async" 
+      [value]="size.name" 
+      (click)=selectedSizes($event.target,size.name)
+      > {{size.name}}</mat-option>
+     
+    </mat-select>
+  </mat-form-field>
+  
+  <p>You selected: {{sizes.value}}</p>
+</div>
+
+
+
+
+
+      <div class="form-group">
+        <label for="imgurl"> Img Url</label><br />
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+          </div>
+          <input [(ngModel)]="productm.imgURL" #imgURL="ngModel" required url minlength="1"
+           name="imageURL" type="text"
+            class="form-control" id="imageURL" aria-describedby="basic-addon3">
+
+        </div>
+        <div class="alert alert-danger" *ngIf="imgURL.touched && imgURL.invalid">
+          <div *ngIf="imgURL.errors.required">please enter price</div>
+          <div *ngIf="imgURL.errors?.url"> enter valid img</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">save</button>
+      <button type="reset" class="btn btn-primary">reset</button>
+      <button type="button" (click)="delete()">delete</button>
+
+    </form>
+  </div>
+  <div class="col-4">
+
+    <div class="card" *ngIf="title.value" style="width: 18rem;">
+      <img [src]="imgURL.value" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{title.value}}</h5>
+        <p class="card-text">{{secondCategory.value}}</p>
+
+        <p class="card-text">{{category.value}}</p>
+        <p class="card-text">{{colors.value}}</p>
+        <p class="card-text">{{sizes.value}}</p>
+        <p class="card-text">{{price.value}}</p>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">order ID</th>
+        <th scope="col">userId</th>
+        <th scope="col">order Details</th>
+
+        <th scope="col">shipping Info</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        
+          <td>{{order.key}}</td>
+          <td>{{order.payload.val().userId}}</td>
+          <td>{{order.payload.val().orderDetails}}</td>
+          <td>{{order.payload.val().shippingInfo}}</td>
+
+        
+      </tr>
+    </tbody>
+    
+  
+  </table>

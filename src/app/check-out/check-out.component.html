@@ -1,0 +1,119 @@
+nd<div class="row">
+<div class="col-6"><h2>Shipping Information</h2>
+<form #f="ngForm" (ngSubmit)="shippingInf(f.value)">
+    <div class="form-group">
+        <label>full Name</label><br />
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="shippingInfo.name"    
+         class="input-group form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>mobile Number</label><br />
+        <input type="number" name="mobile" #mobile="ngModel" [(ngModel)]="shippingInfo.mobile"
+        class="input-group form-control"
+        >
+    </div>
+
+    <h3>Addreess</h3>
+
+    <div class="form-group">
+        <label>country</label><br />
+        <input type="text" name="country" #country="ngModel" [(ngModel)]="shippingInfo.country"
+        class="input-group form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>city</label><br />
+        <input type="text" name="city" #city="ngModel" [(ngModel)]="shippingInfo.city"
+        class="input-group form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>building No</label><br />
+        <input type="number" name="building" #building="ngModel" [(ngModel)]="shippingInfo.building"
+        class="input-group form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>street</label><br />
+        <input type="text" name="street" #street="ngModel" [(ngModel)]="shippingInfo.street"
+        class="input-group form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>zone/town</label><br />
+        <input type="text" name="zone" #zone="ngModel" [(ngModel)]="shippingInfo.zone"
+        class="input-group form-control"
+        >
+    </div>
+
+    <h2>Payment Methode</h2>
+
+    <div class="form-group">
+        <input type="radio" name="paymentMethode" value="credit" (change)="isCredit(true)" >
+        <label class="radio">Credit/Debit card</label><br />
+        <ng-container *ngIf="iscredit">
+            <form>
+                <div class="form-group">
+                    <label>Card No</label>
+                    <input type="number"     class="input-group form-control"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Card No</label>
+                    <input type="text"    class="input-group form-control"
+                    >
+                </div>
+                <div class="form-group">
+                    <label>card No</label>
+                    <input type="date"     class="input-group form-control"
+                    >
+                </div>
+
+            </form>
+        </ng-container>
+
+        <input type="radio" name="paymentMethode" value="ondelever" (change)="isCredit(false)">
+        <label class="radio">Ondelevery</label>
+    </div>
+    <button type="submit" class="btn btn-primary" >Place Order</button>
+    <button type="reset" class="btn btn-primary">reset</button>
+</form>
+</div>
+<div class="col-5 card" *ngIf="carts$ | async as cart">
+<h2>order details</h2>
+<p>TYou have <strong>{{cart.getCartCounter}}</strong> items in your cart</p>
+<p>Total Price:<strong> {{cart.totalPrice}} $</strong></p>
+<table class="table">
+    
+   <tbody>
+      <tr *ngFor="let productId of cart.productids">
+        
+        <td><img width="90" height="90" [src]="cart.items[productId].product.imgURL"></td>
+        <td>            
+            <strong>{{cart.items[productId].product.title}}</strong>
+        <tr >
+            <td><span>color: </span>{{cart.items[productId].product.color}}</td>  
+            <td><span>size: </span>{{cart.items[productId].product.size}}</td> 
+
+        </tr>
+        <tr >
+            <td><span>qty: </span>{{cart.items[productId].quantity}}</td>     
+            <td><span>price: </span>{{cart.itemPrice(productId)}}</td>
+        </tr>
+        
+        </td> 
+              
+        
+      </tr>
+    </tbody> 
+  
+  </table>
+  
+</div></div>

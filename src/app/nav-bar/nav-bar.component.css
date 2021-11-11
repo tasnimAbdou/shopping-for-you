@@ -1,0 +1,30 @@
+.dropdown-toggle {
+    cursor:pointer;
+}
+.navbar-brand{
+color:mintcream;
+font-size: 50px;
+font-family: 'Dancing Script', cursive;
+font-weight: bold;}
+
+.navbar{
+background-color: #47C1BF;
+
+}
+.nav-item ,.nav-link{
+font-size: 25px;
+color: mintcream ;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+
+}
+.nav-item a:hover{
+    color: mintcream;
+    background-color: #47C1BF;
+    font-size: 30px;
+
+}
+.dropdown-item{
+    font-size: 25px;
+    color:#47C1BF ;
+}

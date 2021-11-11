@@ -1,0 +1,112 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.card-img-top{
+height: 300px;
+width: 240px;
+justify-self: center;
+}
+h5{
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.card-body{
+padding: 5px;
+}
+.card-body p {
+    font:15px 'Times New Roman', Times, serif;
+
+}
+.card-footer{
+    padding: 5px;
+    display:none;
+}
+.card-main:hover + .card-footer{
+    display: block;
+    background-color: white;
+    z-index: 2;
+   
+    
+
+
+}
+.card-container:hover >.card{
+    width: 270px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    padding: 9px;
+    z-index: 2;
+    height: initial;
+}
+.card-container{
+    height: 380px;
+}
+.card-footer:hover{
+    display: block;
+    background-color: white;
+
+z-index: 1;
+}
+.card-main{
+width: 250px;
+height: inherit;
+padding: 5px;
+}
+.card{
+width:250px;
+margin: 10px;
+height: 380px;
+z-index: 1;
+}
+.optionsContainer{
+overflow:hidden;
+border: none;
+height:70px ;
+width: 260px;
+background: none;
+}
+
+.optionsblock{
+    justify-content: center;
+    height: 30px;
+   padding-top: 5px;
+    margin: 10px 5px;
+    display: inline-block;
+}
+
+option:checked, option:hover{
+border:3px solid lightblue;
+border-radius: 2pt;
+height: 35px;
+
+}
+
+.disable:hover{
+border: none;
+height:10px ;
+width: 200px;
+
+}
+.disable{
+    border: none;
+    height:10px ;
+    width: 200px;
+    }
+    .btn{
+background-color: #289b99;
+
+    }
+    .card-footer .col-2{
+padding:0 5px ;
+    }
+    .card-footer .col-6{
+        justify-content: center;
+    }
+    .card-footer .row{
+justify-content: center;
+
+    }
